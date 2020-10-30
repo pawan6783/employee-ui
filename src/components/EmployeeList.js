@@ -1,6 +1,9 @@
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import ReactTable from 'react-table-6';
+import 'react-table-6/react-table.css';
+import { Button} from 'reactstrap';
 
 const api_url = "http://localhost:8080/api/employees";
 
@@ -19,36 +22,60 @@ const EmployeeList = () => {
         console.log(result);
     }
 
+    const columns= [
+        {
+            Header: "ID",
+            accessor: "id"
+        },
+        {
+            Header: "Name",
+            accessor: "name"
+        },
+        {
+            Header: "Email",
+            accessor: "email"
+        },
+        {
+            Header: "View",
+            Cell: props =>{
+                return (
+                    <Button  tag={Link} to = {`/view-user/${props.original.id}`}>View</Button>
+                )
+            },
+            filterable: false
+        },
+        {
+            Header: "Edit",
+            Cell: props =>{
+                return (
+                    <Button  tag={Link} to = {`/update-user/${props.original.id}`}>Edit</Button>
+                )
+            },
+            filterable: false
+        },
+        {
+            Header: "Delete",
+            Cell: props =>{
+                return (
+                    <Button  tag={Link} to = {`/delete-user/${props.original.id}`}>Delete</Button>
+                )
+            },
+            filterable: false
+        }
+    ];
+
+
     return(
         <div>
-            <div>
-                <NavLink  to="/add-user">Add User</NavLink>
-            </div>
-            <h2>List of Employees</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {
-                     users.map((user,index) => (
-                            <tr>
-                                <td>{index+1}</td>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td><NavLink to = {`/view-user/${user.id}`}>View</NavLink></td>
-                                <td><NavLink to = {`/update-user/${user.id}`}>Edit</NavLink></td>
-                                <td><NavLink to = {`/delete-user/${user.id}`}>Delete</NavLink></td>
-                            </tr>
-                        ))  
-                    }
-                </tbody>
-            </table>
-
+            <br/>
+            <Button  tag={Link} to = {`/add-user`}>Add User</Button>
+            <br/>
+            <ReactTable 
+                data={users} 
+                columns={columns}
+                filterable 
+            >
+            </ReactTable>
         </div>
     );
 }
