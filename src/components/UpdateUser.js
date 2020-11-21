@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from 'react';
 import axios from 'axios';
 import { useHistory, useParams } from 'react-router-dom';
+import '../stylesheets/UpdateUser.css';
 
 const UpdateUser = () => {
 
@@ -44,45 +45,51 @@ const UpdateUser = () => {
         console.log(result.data);
     }
     return(
-        <div>
+        <div className="updateUser">
             <form onSubmit={(e)=> onClickHandler(e)}>
-            <input type="text" 
+            <input className="updateUser_input"
+                type="text" 
                 placeholder="name"
                 name="name"
                 value={user.name}
                 onChange={(e) => onChangeHandler(e)}></input>
                 <br/>
-                <input type="text" 
+                <input className="updateUser_input"
+                type="text" 
                 placeholder="email"
                 name="email"
                 value={user.email}
                 onChange={(e) => onChangeHandler(e)}></input>
                 <br/>
-                <input type="text" 
+                <input className="updateUser_input"
+                type="text" 
                 placeholder="salary"
                 name="salary"
                 value={user.salary}
                 onChange={(e) => onChangeHandler(e)}></input>
                 <br/>
-                <input type="date" 
+                <input className="updateUser_input"
+                type="date" 
                 placeholder="date"
                 name="dateOfJoining"
                 value={user.dateOfJoining}
                 onChange={(e) => onChangeHandler(e)}></input>
                 <br/>
-                <input type="text" 
+                <input className="updateUser_input"
+                type="text" 
                 placeholder="designation"
                 name="designation"
                 value={user.designation}
                 onChange={(e) => onChangeHandler(e)}></input>
                 <br/>
-                <input type="text" 
+                <input className="updateUser_input"
+                type="text" 
                 placeholder="Is Permanent"
                 name="isPermanent"
                 value={user.isPermanent}
                 onChange={(e) => onChangeHandler(e)}></input>
                 <br/>
-                <button>Update</button>
+                <button className="updateUser_button">Update</button>
             </form>
         </div>
     );

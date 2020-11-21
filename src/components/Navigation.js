@@ -3,7 +3,7 @@ import {React} from "react";
 const Navigation = () => {
     return(
         <center>
-             <header>Employee CRUD</header>
+             <header><h1>Employee CRUD</h1></header>
         </center>   
     );
 }

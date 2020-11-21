@@ -1,7 +1,7 @@
 import {React, useEffect, useState} from 'react';
 import axios from 'axios';
 import { NavLink, useParams } from 'react-router-dom';
-
+import '../stylesheets/ViewUser.css';
 const ViewUser = () => {
 
     const {id} = useParams();
@@ -27,17 +27,20 @@ const ViewUser = () => {
         console.log(result.data);
     }
     return(
-        <div>
-            <h1>Employee Detail</h1>
-            <div>Id : {user.id}</div>
-            <div>Name : {user.name}</div>
-            <div>Email : {user.email}</div>
-            <div>Salary : {user.salary}</div>
-            <div>Date of Joining: {user.dateOfJoining}</div>
-            <div>Designation : {user.designation}</div>
-            <div>Is Permanent : {user.isPermanent}</div>
+        <div className="viewUser_div">
+            <h3>Employee Detail</h3>
+            <div className="viewUser_info">
+            <div className="viewUser_div">Id : {user.id}</div>
+            <div className="viewUser_div">Name : {user.name}</div>
+            <div className="viewUser_div">Email : {user.email}</div>
+            <div className="viewUser_div">Salary : {user.salary}</div>
+            <div className="viewUser_div">Date of Joining : {user.dateOfJoining}</div>
+            <div className="viewUser_div">Designation : {user.designation}</div>
+            <div className="viewUser_div">Is Permanent : {user.isPermanent}</div>
+            </div>
+            
             <br/>
-            <NavLink to="/">Back</NavLink>
+            <NavLink className="viewUser_button" to="/">Back</NavLink>
         </div>
     );
 }

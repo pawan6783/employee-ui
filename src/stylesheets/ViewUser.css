@@ -1,0 +1,38 @@
+.viewUser {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    
+  }
+
+  .viewUser_info {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .viewUser_div{
+      margin: 20px;
+      font-family: "Times New Roman", Times, serif;
+      font-weight: 900;
+      font-size: 18px;
+      border: 5px;
+      border-radius: 5px;
+  }
+  
+  .viewUser_button {
+    background-color: blue;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .addUser > button:hover {
+    background-color: #45a049;
+  }
+  

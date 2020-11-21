@@ -4,6 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import { Button} from 'reactstrap';
+import '../stylesheets/EmployeeList.css';
 
 const api_url = "http://localhost:8080/api/employees";
 
@@ -39,7 +40,7 @@ const EmployeeList = () => {
             Header: "View",
             Cell: props =>{
                 return (
-                    <Button  tag={Link} to = {`/view-user/${props.original.id}`}>View</Button>
+                    <Button className="button" tag={Link} to = {`/view-user/${props.original.id}`}>View</Button>
                 )
             },
             filterable: false
@@ -48,7 +49,7 @@ const EmployeeList = () => {
             Header: "Edit",
             Cell: props =>{
                 return (
-                    <Button  tag={Link} to = {`/update-user/${props.original.id}`}>Edit</Button>
+                    <Button className="button" tag={Link} to = {`/update-user/${props.original.id}`}>Edit</Button>
                 )
             },
             filterable: false
@@ -57,7 +58,7 @@ const EmployeeList = () => {
             Header: "Delete",
             Cell: props =>{
                 return (
-                    <Button  tag={Link} to = {`/delete-user/${props.original.id}`}>Delete</Button>
+                    <Button className="button" tag={Link} to = {`/delete-user/${props.original.id}`}>Delete</Button>
                 )
             },
             filterable: false
@@ -66,9 +67,9 @@ const EmployeeList = () => {
 
 
     return(
-        <div>
+        <div className="employeeList">
             <br/>
-            <Button  tag={Link} to = {`/add-user`}>Add User</Button>
+            <Button className="addButton" tag={Link} to = {`/add-user`}>Add User</Button>
             <br/>
             <ReactTable 
                 data={users} 
